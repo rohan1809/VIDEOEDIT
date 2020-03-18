@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Video_Upload_MVC.Models.videofile>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vpath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vname)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Vpath)*@
+            @*<img class="img img-responsive cimg" src="@Url.Content(item.Vpath)" />*@
+            <video width="100" height="100" controls autoplay="autoplay">
+                <source src="~/Videofiles/@Url.Action(item.Vpath)" type="video/mp4">
+            </video>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Vid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Vid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Vid })
+        </td>
+    </tr>
+}
+
+</table>

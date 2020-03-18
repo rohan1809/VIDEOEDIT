@@ -1,0 +1,33 @@
+﻿@model Video_Upload_MVC.Models.videofile
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+     <div class="container-fluid">
+        @using (Html.BeginForm("Edit", "MVCupload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label>
+                    Upload Video Files:
+                </label>
+                <div class="input-group">
+                    <video width="320" height="240" controls autoplay="autoplay">
+                        <source src="~/Videofiles/@Url.Action(Model.Vpath)" type="video/mp4">
+                    </video>
+                    @Html.TextBox("file", "", new { type = "file" })<br />
+                    @*<input type="file" id="file" name="file">*@
+                    <input type="submit" value="Upload Video Files" />
+                </div>
+            </div>
+        }
+    </div>
+   
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

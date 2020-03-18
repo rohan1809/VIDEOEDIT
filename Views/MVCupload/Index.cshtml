@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>MVC  Video Files Upload</h2>
+ <!DOCtype html>
+<html>
+<head>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        @using (Html.BeginForm("Index", "MVCupload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label>
+                    Upload Video Files:
+                </label>
+                <div class="input-group">
+                    @Html.TextBox("videofile","",new { type="file"})<br/>
+                    <input type="submit" value="Upload Video Files" />
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
